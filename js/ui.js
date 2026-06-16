@@ -52,7 +52,7 @@ window.UI = {
         if (country.error) return window.UI.renderError('country-content');
 
         // Adaptação para os nós nativos da resposta da API v5
-        const name = country.names?.common || country.name || 'Desconhecido';
+        const name = country.name?.common || country.name || 'Desconhecido';
         const capital = country.capitals?.[0] || country.capital || 'N/A';
         const flagUrl = country.flags?.svg || country.flag_url || '';
         const population = country.demographics?.population?.toLocaleString('pt-BR') || country.population?.toLocaleString('pt-BR') || 'N/A';

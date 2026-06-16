@@ -22,33 +22,20 @@ window.API = {
     },
 
 getCountries: async () => {
-        try {
-            // Usamos o corsproxy.io para contornar o bloqueio de origem do navegador
-            const proxyUrl = 'https://corsproxy.io/?';
-            const targetUrl = 'https://api.restcountries.com/countries/v5';
-            
-            const response = await fetch(proxyUrl + encodeURIComponent(targetUrl), {
-                method: 'GET',
-                headers: {
-                    'Authorization': 'Bearer rc_live_1e7563aa428247588e60abf05cb825f2',
-                    'Content-Type': 'application/json'
-                }
-            });
+    try {
+        const response = await fetch('https://studies.cs.helsinki.fi/restcountries/api/all');
 
-            if (!response.ok) throw new Error('Erro na requisição: ' + response.status);
+        if (!response.ok) throw new Error('Erro na requisição: ' + response.status);
 
-            const json = await response.json();
-            
-            // Verifique o console para saber exatamente onde está o array de países
-            console.log('Resposta da API v5:', json);
-            
-            // Ajuste conforme a estrutura que aparecer no console (geralmente data.objects)
-            return json.data?.objects || json; 
-        } catch (error) {
-            console.error('Erro na API:', error);
-            return { error: true };
-        }
-    },
+        const json = await response.json();
+        console.log('Resposta da API:', json);
+
+        return json;
+    } catch (error) {
+        console.error('Erro na API:', error);
+        return { error: true };
+    }
+},
 
     getJoke: async () => {
         try {
