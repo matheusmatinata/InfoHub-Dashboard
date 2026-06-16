@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfoHub Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <h1>InfoHub Dashboard</h1>
+            <div class="header-controls">
+                <div class="status-bar">
+                    <span>⏳ Atualizado: <strong id="last-update">--:--</strong></span>
+                    <span>📡 APIs: <strong id="api-status">0/5</strong></span>
+                </div>
+                <button id="theme-toggle" class="btn-icon" aria-label="Alternar Tema">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container dashboard-grid">
+        <section class="card" id="card-currencies">
+            <div class="card-header">
+                <h2>Cotação de Moedas</h2>
+                <span class="badge">Auto-update</span>
+            </div>
+            <div class="card-body" id="currencies-content">
+                <div class="loader">Carregando...</div>
+            </div>
+        </section>
+
+        <section class="card" id="card-cep">
+            <div class="card-header">
+                <h2>Consulta CEP</h2>
+            </div>
+            <div class="card-body">
+                <div class="input-group">
+                    <input type="text" id="cep-input" placeholder="Digite o CEP (somente números)" maxlength="8">
+                    <button id="btn-search-cep" class="btn-primary">Buscar</button>
+                </div>
+                <div id="cep-content" class="result-area"></div>
+            </div>
+        </section>
+
+        <section class="card" id="card-country">
+            <div class="card-header">
+                <h2>Explorar Mundo</h2>
+            </div>
+            <div class="card-body" id="country-content">
+                <div class="loader">Carregando...</div>
+            </div>
+            <div class="card-footer">
+                <button id="btn-new-country" class="btn-secondary">Novo país</button>
+                <button id="btn-save-country" class="btn-outline hidden">⭐ Salvar</button>
+            </div>
+        </section>
+
+        <section class="card" id="card-joke">
+            <div class="card-header">
+                <h2>Momento Humor</h2>
+            </div>
+            <div class="card-body" id="joke-content">
+                <div class="loader">Carregando...</div>
+            </div>
+            <div class="card-footer">
+                <button id="btn-new-joke" class="btn-secondary">Nova piada</button>
+            </div>
+        </section>
+
+        <section class="card" id="card-cat">
+            <div class="card-header">
+                <h2>Fatos Sobre Gatos</h2>
+            </div>
+            <div class="card-body" id="cat-content">
+                <div class="loader">Carregando...</div>
+            </div>
+            <div class="card-footer">
+                <button id="btn-new-cat" class="btn-secondary">Novo fato</button>
+            </div>
+        </section>
+
+        <section class="card span-full" id="card-favorites">
+            <div class="card-header">
+                <h2>Meus Favoritos</h2>
+            </div>
+            <div class="card-body">
+                <div class="favorites-grid">
+                    <div>
+                        <h3>Cidades Salvas (CEP)</h3>
+                        <ul id="list-fav-ceps" class="fav-list"></ul>
+                    </div>
+                    <div>
+                        <h3>Países Salvos</h3>
+                        <ul id="list-fav-countries" class="fav-list"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/helpers.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
